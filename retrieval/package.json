@@ -1,0 +1,13 @@
+{
+    "name": "@filecoin-station/pdp-checker-retrieval",
+    "type": "module",
+    "private": true,
+    "scripts": {
+      "lint": "standard",
+      "test": "node --test --test-reporter=spec --test-concurrency=1"
+    },
+    "devDependencies": {
+    },
+    "dependencies": {
+    }
+  }
