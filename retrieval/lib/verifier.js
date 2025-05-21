@@ -8,12 +8,12 @@ export const createVerifierContract = (address) => {
     * @param {string[]} commps
     * @param {boolean[]} retrievable
     */
-    async submitRetrievalResults(service, commps, retrievable) {
+    async submitRetrievalResults (service, commps, retrievable) {
       // Mock implementation: just log the call
-      console.log("submitRetrievalResults called with:");
-      console.log("Service:", service);
-      console.log("CommPs:", commps);
-      console.log("Retrievable:", retrievable);
+      console.log('submitRetrievalResults called with:')
+      console.log('Service:', service)
+      console.log('CommPs:', commps)
+      console.log('Retrievable:', retrievable)
     }
   }
 }
