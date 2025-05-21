@@ -6,7 +6,7 @@ import { createHash } from 'crypto'
 import { fileURLToPath } from 'url'
 import path from 'path'
 
-describe('checkRetrieval integration and unit tests', () => {
+describe('checkRetrieval', () => {
   const sampleCid =
     'baga6ea4seaqkzso6gijktpl22dxarxq25iynurceicxpst35yjrcp72uq3ziwpi'
   const baseUrl = 'yablu.net'
@@ -22,8 +22,8 @@ describe('checkRetrieval integration and unit tests', () => {
       downloadedData,
       'Downloaded data should not be null or undefined'
     )
+
     // Check the hash of the testData against the fetched data
-    // Get the current file's directory (portable for ES modules)
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = path.dirname(__filename)
     const testFilePath = path.join(__dirname, 'testData.pdf')
