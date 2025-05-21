@@ -1,5 +1,6 @@
 {
   "name": "pdp-checker",
+  "description": "A tool for checking PDP compliance and retrieval.",
   "private": true,
   "version": "0.1.0",
   "type": "module",
