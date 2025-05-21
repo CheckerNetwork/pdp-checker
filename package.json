@@ -1,6 +1,6 @@
 {
   "name": "pdp-checker",
-  "description": "A tool for checking PDP compliance and retrieval.",
+  "description": "A tool for checking PDP deal retrievability.",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/CheckerNetwork/pdp-checker.git"
   },
-  "author": "Space Meridian <spark@meridian.space>",
+  "author": "Space Meridian <pdp@meridian.space>",
   "license": "(Apache-2.0 AND MIT)",
   "bugs": {
     "url": "https://github.com/CheckerNetwork/pdp-checker/issues"
