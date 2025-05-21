@@ -11,13 +11,10 @@ jobs:
     strategy:
       matrix:
         dependencyStartsWith:
-          - debug
-          - ethers
           - typescript
           - '@types/'
           - standard
           - prettier
-          - multiformats
     steps:
       - name: Dependabot metadata
         id: metadata
