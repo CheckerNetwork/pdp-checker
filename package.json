@@ -3,14 +3,12 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "workspaces": [
-    "retrieval"
-  ],
+  "main": "index.js",
   "scripts": {
     "lint": "prettier --check . && standard",
     "lint:fix": "prettier --write . && standard --fix .",
     "test:types": "tsc -p .",
-    "test:unit": "npm test --workspaces --if-present",
+    "test:unit": "node --test",
     "test": "npm run lint && npm run test:types && npm run test:unit"
   },
   "repository": {
