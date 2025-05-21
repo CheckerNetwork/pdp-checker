@@ -3,9 +3,12 @@ import assert from 'node:assert/strict'
 import { checkRetrieval, retrieveFile } from '../lib/retrieval.js'
 import fs from 'fs/promises'
 import { createHash } from 'crypto'
+import { fileURLToPath } from 'url'
+import path from 'path'
 
 describe('checkRetrieval integration and unit tests', () => {
-  const sampleCid = 'baga6ea4seaqkzso6gijktpl22dxarxq25iynurceicxpst35yjrcp72uq3ziwpi'
+  const sampleCid =
+    'baga6ea4seaqkzso6gijktpl22dxarxq25iynurceicxpst35yjrcp72uq3ziwpi'
   const baseUrl = 'yablu.net'
 
   test('should download PDF file from live URL', async () => {
@@ -16,7 +19,13 @@ describe('checkRetrieval integration and unit tests', () => {
   test('should return file with expected hash', async () => {
     const downloadedData = await retrieveFile(baseUrl, sampleCid)
     // Check the hash of the testData against the fetched data
-    const testData = await fs.readFile('./test/testdata.pdf')
+    // Get the current file's directory (portable for ES modules)
+    const __filename = fileURLToPath(import.meta.url)
+    const __dirname = path.dirname(__filename)
+
+    // Build path to testdata.pdf
+    const testFilePath = path.join(__dirname, 'testdata.pdf')
+    const testData = await fs.readFile(testFilePath)
     const expectedHash = createHash('sha256').update(testData).digest('hex')
     const actualHash = createHash('sha256')
       .update(downloadedData)
