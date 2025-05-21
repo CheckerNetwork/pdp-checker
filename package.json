@@ -23,5 +23,7 @@
   },
   "homepage": "https://github.com/CheckerNetwork/pdp-checker#readme",
   "devDependencies": {
+    "prettier": "^3.5.3",
+    "standard": "^17.1.2"
   }
 }
