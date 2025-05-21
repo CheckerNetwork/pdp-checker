@@ -1,5 +1,5 @@
 {
-  "name": "@filecoin-station/deal-observer-monorepo",
+  "name": "pdp-checker",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/filecoin-station/deal-observer.git"
+    "url": "git+ssh://git@github.com/CheckerNetwork/pdp-checker.git"
   },
   "author": "Space Meridian <spark@meridian.space>",
   "license": "(Apache-2.0 AND MIT)",
   "bugs": {
-    "url": "https://github.com/filecoin-station/deal-observer/issues"
+    "url": "https://github.com/CheckerNetwork/pdp-checker/issues"
   },
-  "homepage": "https://github.com/filecoin-station/deal-observer#readme",
+  "homepage": "https://github.com/CheckerNetwork/pdp-checker#readme",
   "devDependencies": {
   }
 }
