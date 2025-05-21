@@ -1,26 +1,34 @@
 {
   "name": "pdp-checker",
+  "description": "A tool for checking PDP deal retrievability.",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "workspaces": [
-    "retrieval"
-  ],
+  "main": "index.js",
   "scripts": {
     "lint": "prettier --check . && standard",
     "lint:fix": "prettier --write . && standard --fix .",
     "test:types": "tsc -p .",
-    "test:unit": "npm test --workspaces --if-present",
+    "test:unit": "node --test",
     "test": "npm run lint && npm run test:types && npm run test:unit"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/filecoin-station/deal-observer.git"
+    "url": "git+ssh://git@github.com/CheckerNetwork/pdp-checker.git"
   },
-  "author": "Space Meridian <spark@meridian.space>",
+  "author": "Space Meridian <pdp@meridian.space>",
   "license": "(Apache-2.0 AND MIT)",
   "bugs": {
-    "url": "https://github.com/filecoin-station/deal-observer/issues"
+    "url": "https://github.com/CheckerNetwork/pdp-checker/issues"
   },
-  "homepage": "https://github.com/filecoin-station/deal-observer#readme"
+  "homepage": "https://github.com/CheckerNetwork/pdp-checker#readme",
+  "devDependencies": {
+    "@checkernetwork/prettier-config": "^1.0.0",
+    "standard": "^17.1.2"
+  },
+  "dependencies": {
+    "debug": "^4.4.1",
+    "node-fetch": "^3.3.2",
+    "p-retry": "^6.2.1"
+  }
 }
