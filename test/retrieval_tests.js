@@ -26,10 +26,9 @@ describe('checkRetrieval integration and unit tests', () => {
     // Get the current file's directory (portable for ES modules)
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = path.dirname(__filename)
-
-    // Build path to testdata.pdf
     const testFilePath = path.join(__dirname, 'testData.pdf')
     const testData = await fs.readFile(testFilePath)
+
     const expectedHash = createHash('sha256').update(testData).digest('hex')
     const actualHash = createHash('sha256')
       .update(downloadedData)
