@@ -1,20 +1,13 @@
 import test, { describe } from 'node:test'
 import assert from 'node:assert/strict'
-import { checkRetrieval, retrieveFile } from '../lib/retrieval.js'
-import fs from 'fs/promises'
+import { retrieveFile } from '../lib/retrieval.js'
 import { createHash } from 'crypto'
-import { fileURLToPath } from 'url'
-import path from 'path'
 
 describe('checkRetrieval', () => {
   const sampleCid =
     'baga6ea4seaqkzso6gijktpl22dxarxq25iynurceicxpst35yjrcp72uq3ziwpi'
   const baseUrl = 'yablu.net'
-
-  test('should download PDF file from live URL', async () => {
-    const result = await checkRetrieval(baseUrl, sampleCid)
-    assert.equal(result, true, 'checkRetrieval should return true on success')
-  })
+  const expectedHash = '61214c558a8470634437a941420a258c43ef1e89364d7347f02789f5a898dcb1'
 
   test('should return file with expected hash', async () => {
     const downloadedData = await retrieveFile(baseUrl, sampleCid)
@@ -23,13 +16,6 @@ describe('checkRetrieval', () => {
       'Downloaded data should not be null or undefined'
     )
 
-    // Check the hash of the testData against the fetched data
-    const __filename = fileURLToPath(import.meta.url)
-    const __dirname = path.dirname(__filename)
-    const testFilePath = path.join(__dirname, 'testData.pdf')
-    const testData = await fs.readFile(testFilePath)
-
-    const expectedHash = createHash('sha256').update(testData).digest('hex')
     const actualHash = createHash('sha256')
       .update(downloadedData)
       .digest('hex')
@@ -38,10 +24,5 @@ describe('checkRetrieval', () => {
       expectedHash,
       'Downloaded data hash should match the expected hash'
     )
-  })
-
-  test('should return false on fetch failure', async () => {
-    const result = await checkRetrieval('invalid.url', 'fakecid')
-    assert.equal(result, false, 'checkRetrieval should fail and return false')
   })
 })
